@@ -11,11 +11,11 @@
   },
   "server": {
     "port": "8090",
-    "host": "localhost",
+    "host": "0.0.0.0",
     "ssl": false
   },
   "jwt": {
-    "secret": "",
+    "secret": "", //optional
     "expiration_time": 0
   }
 }

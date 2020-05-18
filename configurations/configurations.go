@@ -57,9 +57,13 @@ func init() {
 	}()
 
 	var configFile *os.File
-	if configFile, err = os.Open("/etc/upocwin/configs.json"); err == nil {
+	var projectName = os.Getenv("PROJECT_NAME")
+	if configFile, err = os.Open(fmt.Sprintf("/etc/%s/configs.json", projectName)); err == nil {
 		confDecoded := json.NewDecoder(configFile)
 		err = confDecoded.Decode(&configurationsDefault)
+		if configurationsDefault.JWT.SecretRaw == "" {
+			configurationsDefault.JWT.SecretRaw = fmt.Sprintf("/opt/%s/.key/%s", projectName, projectName)
+		}
 	}
 
 	// TODO: O que fazer quando as configuracoes nao estiverem preenchidas...

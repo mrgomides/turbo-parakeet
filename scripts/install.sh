@@ -1,15 +1,15 @@
 #! /bin/bash
-sudo rm -rf /etc/upocwin;
-sudo rm -rf /opt/upocwin;
-sudo rm -rf /var/log/upocwin;
-sudo mkdir /etc/upocwin;
-ssh-keygen -t rsa -b 4096 -N "" -C "contact@upocwin.com" -f ./static/upocwin
-sudo cp ./static/configs.json /etc/upocwin/;
-sudo mkdir /opt/upocwin;
-sudo mkdir /opt/upocwin/.key;
-sudo cp -r ./bin /opt/upocwin;
-sudo cp ./static/upocwin /opt/upocwin/.key;
-sudo chown $USER:$USER /opt/upocwin/.key/upocwin;
-sudo touch /var/log/upocwin;
-sudo chown $USER:$USER /var/log/upocwin;
-sudo chmod 0755 /var/log/upocwin;
+rm -rf /etc/$TURBO_PARAKEET_DEFAULT_NAME;
+rm -rf /opt/$TURBO_PARAKEET_DEFAULT_NAME;
+rm -rf /var/log/$TURBO_PARAKEET_DEFAULT_NAME;
+mkdir /etc/$TURBO_PARAKEET_DEFAULT_NAME;
+ssh-keygen -t rsa -b 4096 -N "" -C "$TURBO_PARAKEET_EMAIL" -f ./static/$TURBO_PARAKEET_DEFAULT_NAME;
+cp ./static/configs.json /etc/$TURBO_PARAKEET_DEFAULT_NAME/;
+mkdir /opt/$TURBO_PARAKEET_DEFAULT_NAME;
+mkdir /opt/$TURBO_PARAKEET_DEFAULT_NAME/.key;
+cp -r ./bin /opt/$TURBO_PARAKEET_DEFAULT_NAME;
+cp ./static/$TURBO_PARAKEET_DEFAULT_NAME /opt/$TURBO_PARAKEET_DEFAULT_NAME/.key;
+chown $USER:$USER /opt/$TURBO_PARAKEET_DEFAULT_NAME/.key/$TURBO_PARAKEET_DEFAULT_NAME;
+touch /var/log/$TURBO_PARAKEET_DEFAULT_NAME;
+chown $USER:$USER /var/log/$TURBO_PARAKEET_DEFAULT_NAME;
+chmod 0755 /var/log/$TURBO_PARAKEET_DEFAULT_NAME;

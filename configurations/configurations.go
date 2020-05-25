@@ -57,7 +57,7 @@ func init() {
 	}()
 
 	var configFile *os.File
-	var projectName = os.Getenv("PROJECT_NAME")
+	var projectName = os.Getenv("TURBO_PARAKEET_DEFAULT_NAME")
 	if configFile, err = os.Open(fmt.Sprintf("/etc/%s/configs.json", projectName)); err == nil {
 		confDecoded := json.NewDecoder(configFile)
 		err = confDecoded.Decode(&configurationsDefault)

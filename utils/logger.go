@@ -22,7 +22,7 @@ type Logger struct {
 
 // NewLogger inicia um novo contexto de log para o sistema
 func NewLogger() *Logger {
-	f, err := os.OpenFile("/var/log/upocwin", os.O_WRONLY|os.O_CREATE|os.O_APPEND, 0755)
+	f, err := os.OpenFile(fmt.Sprintf("/var/log/%s", os.Getenv("TURBO_PARAKEET_DEFAULT_NAME")), os.O_WRONLY|os.O_CREATE|os.O_APPEND, 0755)
 	if err != nil {
 		log.Fatalf("error opening file: %v", err)
 	}
